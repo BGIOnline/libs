@@ -1146,7 +1146,7 @@
 			switchObj = $$(node, consts.id.SWITCH, setting),
 			icoObj = $$(node, consts.id.ICON, setting);
 
-			if (node.isParent) {
+			if (node.isParent && node.children && node.children.length != 0) {
 				node.open = !node.open;
 				if (node.iconOpen && node.iconClose) {
 					icoObj.attr("style", view.makeNodeIcoStyle(setting, node));
@@ -1263,7 +1263,7 @@
 			var icoCss = ["ico"];
 			if (!node.isAjaxing) {
 				icoCss[0] = (node.iconSkin ? node.iconSkin + "_" : "") + icoCss[0];
-				if (node.isParent) {
+				if (node.isParent && node.children && node.children.length != 0) {
 					icoCss.push(node.open ? consts.folder.OPEN : consts.folder.CLOSE);
 				} else {
 					icoCss.push(consts.folder.DOCU);
@@ -1297,7 +1297,7 @@
 			} else {
 				lineClass.push(consts.line.NOLINE);
 			}
-			if (node.isParent) {
+			if (node.isParent && node.children && node.children.length != 0) {
 				lineClass.push(node.open ? consts.folder.OPEN : consts.folder.CLOSE);
 			} else {
 				lineClass.push(consts.folder.DOCU);
